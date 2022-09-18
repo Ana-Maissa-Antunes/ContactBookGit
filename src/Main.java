@@ -13,10 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String GET_NUMBER     = "GN";
-    public static final String SAME_PHONE_NUMBER = "EP";
     public static final String QUIT           = "Q";
-
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -25,9 +22,6 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-    public static final String NUMBER_NOT_MATCH = "Phone number does not exist.";
-    public static final String HAS_SAME_NUM = "There are contacts that share phone numbers.";
-    public static final String NOT_SAME_NUM = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -58,12 +52,6 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
-                    break;
-                case GET_NUMBER:
-                    getContact(in, cBook);
-                    break;
-                case SAME_PHONE_NUMBER:
-                    hasSamePhoneNum(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -158,24 +146,5 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
-    }
-    private static void hasSamePhoneNum(Scanner in, ContactBook cBook) {
-        boolean hasSameNum = cBook.hasSameNumber();
-
-        if (hasSameNum)
-            System.out.println(HAS_SAME_NUM);
-        else
-            System.out.println(NOT_SAME_NUM);
-    }
-
-    private static void getContact(Scanner in, ContactBook cBook) {
-        int phoneNum = in.nextInt(); in.nextLine();
-        String name = cBook.personNumber(phoneNumber);
-
-        if (name.equals(null))
-            System.out.println(NUMBER_NOT_MATCH);
-        else {
-            System.out.println(name);
-        }
     }
 }
