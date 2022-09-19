@@ -156,6 +156,7 @@ public class Main {
 
     private static void getContact(Scanner in, ContactBook cBook) {
         int phoneNum = in.nextInt(); in.nextLine();
+
         String name = cBook.personNumber(phoneNum);
 
         if (name.equals(""))

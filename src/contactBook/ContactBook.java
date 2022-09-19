@@ -81,15 +81,15 @@ public class ContactBook {
     }
 
     public String personNumber(int phoneNumber) {
-        for (int i = counter; i > 0; i--) {
-            if (contacts[i].getPhone() == phoneNumber) {
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i]!=null && contacts[i].getPhone() == phoneNumber) {
                 return contacts[i].getName();
             }
         }
-        return null;
+        return "";
     }
 
-    public boolean hasSamePhoneNum(){
+    public boolean hasSameNumber(){
         for( int i=0;i<counter;i++){
             for(int j = i+1; j< counter;j++)
                 if (contacts[i].getPhone()==contacts[j].getPhone())
