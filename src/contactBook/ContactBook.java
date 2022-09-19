@@ -109,5 +109,4 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
-
 }
